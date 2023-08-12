@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth, type User } from "firebase/auth";
+import { getAuth, onAuthStateChanged, type User } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { writable } from "svelte/store";
 
@@ -34,6 +34,14 @@ function userStore() {
       subscribe,
     }
   }
+
+  const { subscribe } = writable(auth?.currentUser ?? null, (set) => {
+    unsubscribe = onAuthStateChanged(auth, (user) => {
+      set(user);
+    });
+
+    return () => unsubscribe();
+  });
 }
 
 export const user = userStore();
