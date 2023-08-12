@@ -19,3 +19,12 @@ export const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
 export const auth = getAuth();
 export const storage = getStorage();
+
+/**
+ * @returns a store with the current firebase user
+ */
+function userStore() {
+  let unsubscribe: () => void;
+}
+
+export const user = userStore();
