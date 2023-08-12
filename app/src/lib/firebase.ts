@@ -1,8 +1,9 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, type User } from "firebase/auth";
 import { getStorage } from "firebase/storage";
+import { writable } from "svelte/store";
 
 
 const firebaseConfig = {
@@ -25,6 +26,14 @@ export const storage = getStorage();
  */
 function userStore() {
   let unsubscribe: () => void;
+
+  if (!auth || !globalThis.window) {
+    console.warn('Auth is not initialized or not in browser');
+    const { subscribe } = writable<User | null>(null);
+    return {
+      subscribe,
+    }
+  }
 }
 
 export const user = userStore();
