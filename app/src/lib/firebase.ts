@@ -42,6 +42,10 @@ function userStore() {
 
     return () => unsubscribe();
   });
+
+  return {
+    subscribe,
+  };
 }
 
 export const user = userStore();
