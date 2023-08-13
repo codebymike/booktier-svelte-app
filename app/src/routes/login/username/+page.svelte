@@ -5,6 +5,11 @@
     let loading = false;
     let isAvailable = false;
 
+    let debounceTimer: NodeJS.Timeout;
+
+    async function checkAvailability() {
+    }
+
     async function confirmUsername() {
     // TODO
     }
