@@ -17,6 +17,17 @@
     <h2>Username</h2>
     <form class="w-2/5" on:submit|preventDefault={confirmUsername}>
 
+        <input
+          type="text"
+          placeholder="Username"
+          class="input w-full"
+          bind:value={username}
+          on:input={checkAvailability}
+        />
 
-      </form>
+        <p>Is available? {isAvailable}</p>
+
+        <button class="btn btn-success">Confirm username @{username} </button>
+
+    </form>
 </AuthCheck>
