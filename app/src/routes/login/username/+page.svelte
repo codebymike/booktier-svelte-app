@@ -8,6 +8,13 @@
     let debounceTimer: NodeJS.Timeout;
 
     async function checkAvailability() {
+        isAvailable = false;
+        clearTimeout(debounceTimer);
+
+        loading = true;
+
+        debounceTimer = setTimeout(async () => {
+        }, 500);
     }
 
     async function confirmUsername() {
