@@ -66,6 +66,9 @@
           class="input w-full"
           bind:value={username}
           on:input={checkAvailability}
+          class:input-error={(!isValid && isTouched)}
+          class:input-warning={isTaken}
+          class:input-success={isAvailable && isValid && !loading}
         />
 
         <p>Is available? {isAvailable}</p>
