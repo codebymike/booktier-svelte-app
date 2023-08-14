@@ -76,3 +76,11 @@ export function docStore<T>(
     id: docRef.id,
   };
 }
+
+
+interface UserData {
+  username: string;
+  bio: string;
+  photoURL: string;
+  links: any[];
+}
