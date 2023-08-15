@@ -26,6 +26,15 @@
     <h2 class="card-title">Upload a Profile Photo</h2>
 
     <form class="max-w-screen-md w-full">
+        <div class="form-control w-full max-w-xs my-10 mx-auto text-center">
+            <img
+              src={previewURL ?? $userData?.photoURL ?? "/user.png"}
+              alt="photoURL"
+              width="256"
+              height="256"
+              class="mx-auto"
+            />
+          </div>
     </form>
 
     <a {href} class="btn btn-primary"> Finish </a>
