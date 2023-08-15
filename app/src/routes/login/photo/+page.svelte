@@ -1,5 +1,5 @@
 <script lang="ts">
-
+    import AuthCheck from "$lib/components/AuthCheck.svelte";
     import { user, userData, storage, db } from "$lib/firebase";
     import { doc, updateDoc } from "firebase/firestore";
     import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -22,4 +22,6 @@
 
 </script>
 
-<h2>Photo</h2>
+<AuthCheck>
+
+</AuthCheck>
