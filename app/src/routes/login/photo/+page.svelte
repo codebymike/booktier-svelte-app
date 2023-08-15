@@ -23,5 +23,10 @@
 </script>
 
 <AuthCheck>
+    <h2 class="card-title">Upload a Profile Photo</h2>
 
+    <form class="max-w-screen-md w-full">
+    </form>
+
+    <a {href} class="btn btn-primary"> Finish </a>
 </AuthCheck>
