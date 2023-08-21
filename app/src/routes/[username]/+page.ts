@@ -25,5 +25,11 @@ export const load = (async ({ params }) => {
         throw error(403, `The profile of @${data.username} is not public!`);
     }
 
-    return {};
+    return {
+        username: data.username,
+        photoURL: data.photoURL,
+        bio: data.bio,
+        links: data.links ?? [],
+    };
+
 }) satisfies PageLoad;
