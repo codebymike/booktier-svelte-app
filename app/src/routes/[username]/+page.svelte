@@ -14,4 +14,11 @@
         @{data.username}
     </h1>
 
+    <img
+      src={data.photoURL ?? "/user.png"}
+      alt="photoURL"
+      width="256"
+      class="mx-auto"
+    />
+
 </main>
