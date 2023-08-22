@@ -53,4 +53,9 @@
       });
     }
 
+    function cancelLink() {
+      formData.set(formDefaults);
+      showForm = false;
+    }
+
 </script>
