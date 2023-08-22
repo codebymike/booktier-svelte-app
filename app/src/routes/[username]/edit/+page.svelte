@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+  import { db, userData, user } from "$lib/firebase";
   import { writable } from "svelte/store";
 
     
@@ -24,4 +26,24 @@
     $: urlIsValid = $formData.url.match(/^(ftp|http|https):\/\/[^ "]+$/);
     $: titleIsValid = $formData.title.length < 20 && $formData.title.length > 0;
     $: formIsValid = urlIsValid && titleIsValid;
+
+    async function addLink(e: SubmitEvent) {
+      const userRef = doc(db, "users", $user!.uid);
+  
+      await updateDoc(userRef, {
+        links: arrayUnion({
+          ...$formData,
+          id: Date.now().toString(),
+        }),
+      });
+  
+      formData.set({
+        icon: "",
+        title: "",
+        url: "",
+      });
+  
+      showForm = false;
+    }
+
 </script>
