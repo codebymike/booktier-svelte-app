@@ -81,6 +81,29 @@
                 on:submit|preventDefault={addLink}
                 class="bg-base-200 p-6 w-full mx-auto rounded-xl"
             >
+            <select
+                name="icon"
+                class="select select-sm"
+                bind:value={$formData.icon}
+            >
+                {#each icons as icon}
+                <option value={icon.toLowerCase()}>{icon}</option>
+                {/each}
+            </select>
+            <input
+                name="title"
+                type="text"
+                placeholder="Title"
+                class="input input-sm"
+                bind:value={$formData.title}
+            />
+            <input
+                name="url"
+                type="text"
+                placeholder="URL"
+                class="input input-sm"
+                bind:value={$formData.url}
+            />
 
     {/if}
 </main>
