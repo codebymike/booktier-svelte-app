@@ -124,7 +124,15 @@
     
                 <button type="button" class="btn btn-xs my-4" on:click={cancelLink}>Cancel</button>
             </form>
-
+            
+        {:else}
+            <button
+                on:click={() => (showForm = true)}
+                class="btn btn-outline btn-info block mx-auto my-4"
+            >
+                Add a Link
+            </button>
+        {/if}
     {/if}
 </main>
 
