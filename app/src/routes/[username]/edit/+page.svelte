@@ -73,6 +73,15 @@
         <h1 class="mx-2 text-2xl font-bold mt-8 mb-4 text-center">
             Edit your Profile
         </h1>
+
+        <!-- INSERT sortable list here -->
+
+        {#if showForm}
+            <form
+                on:submit|preventDefault={addLink}
+                class="bg-base-200 p-6 w-full mx-auto rounded-xl"
+            >
+
     {/if}
 </main>
 
