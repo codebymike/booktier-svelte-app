@@ -104,6 +104,17 @@
                 class="input input-sm"
                 bind:value={$formData.url}
             />
+            <div class="my-4">
+                {#if !titleIsValid}
+                  <p class="text-error text-xs">Must have valid title</p>
+                {/if}
+                {#if !urlIsValid}
+                  <p class="text-error text-xs">Must have a valid URL</p>
+                {/if}
+                {#if formIsValid}
+                  <p class="text-success text-xs">Looks good!</p>
+                {/if}
+              </div>
 
     {/if}
 </main>
