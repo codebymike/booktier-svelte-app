@@ -1,7 +1,15 @@
 <script lang="ts">
-  import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
-  import { db, userData, user } from "$lib/firebase";
-  import { writable } from "svelte/store";
+    import { page } from "$app/stores";
+    import UserLink from "$lib/components/UserLink.svelte";
+    import { db, userData, user } from "$lib/firebase";
+    import {
+      arrayRemove,
+      arrayUnion,
+      doc,
+      setDoc,
+      updateDoc,
+    } from "firebase/firestore";
+    import { writable } from "svelte/store";
 
     
     const icons = [
@@ -59,3 +67,4 @@
     }
 
 </script>
+
