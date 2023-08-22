@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+  import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
   import { db, userData, user } from "$lib/firebase";
   import { writable } from "svelte/store";
 
@@ -44,6 +44,13 @@
       });
   
       showForm = false;
+    }
+
+    async function deleteLink(item: any) {
+      const userRef = doc(db, "users", $user!.uid);
+      await updateDoc(userRef, {
+        links: arrayRemove(item),
+      });
     }
 
 </script>
