@@ -1,5 +1,11 @@
 <script lang="ts">
-    import type { PageData } from './$types';
     
-    export let data: PageData;
+    const icons = [
+      "Twitter",
+      "YouTube",
+      "TikTok",
+      "LinkedIn",
+      "GitHub",
+      "Custom",
+    ];
 </script>
