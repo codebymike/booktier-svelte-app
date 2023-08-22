@@ -20,4 +20,8 @@
     const formData = writable(formDefaults);
   
     let showForm = false;
+
+    $: urlIsValid = $formData.url.match(/^(ftp|http|https):\/\/[^ "]+$/);
+    $: titleIsValid = $formData.title.length < 20 && $formData.title.length > 0;
+    $: formIsValid = urlIsValid && titleIsValid;
 </script>
