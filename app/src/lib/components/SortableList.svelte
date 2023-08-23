@@ -48,3 +48,9 @@
     };
 
 </script>
+
+<style>
+.over {
+    @apply border-gray-400 scale-105;
+}
+</style>
