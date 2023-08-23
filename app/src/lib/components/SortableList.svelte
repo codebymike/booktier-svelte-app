@@ -49,6 +49,11 @@
 
 </script>
 
+{#if list?.length}
+{:else}
+  <p class="text-center my-12 text-lg font-bold">No items</p>
+{/if}
+
 <style>
 .over {
     @apply border-gray-400 scale-105;
