@@ -19,4 +19,11 @@
         e.dataTransfer?.setData("source", dragged?.index.toString());
     }
 
+    function onDragOver(e: DragEvent) {
+        // @ts-ignore
+        const id = e.target.dataset?.id;
+        const dragged = getDraggedParent(e.target);
+        isOver = dragged?.id ?? false;
+    }
+
 </script>
