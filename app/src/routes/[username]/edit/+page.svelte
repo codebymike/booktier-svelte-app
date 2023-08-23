@@ -55,6 +55,12 @@
       showForm = false;
     }
 
+    function sortList(e: CustomEvent) {
+      const newList = e.detail;
+      const userRef = doc(db, "users", $user!.uid);
+      setDoc(userRef, { links: newList }, { merge: true });
+    }
+
     async function deleteLink(item: any) {
       const userRef = doc(db, "users", $user!.uid);
       await updateDoc(userRef, {
