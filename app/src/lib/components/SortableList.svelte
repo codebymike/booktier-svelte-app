@@ -52,7 +52,20 @@
 {#if list?.length}
 <ul class="list-none p-0 flex flex-col items-center">
     {#each list as item, index (item.id)}
-
+      <li
+        class="border-2 border-dashed border-transparent p-2 transition-all max-w-md w-full"
+        class:over={item.id === isOver}
+        data-index={index}
+        data-id={item.id}
+        draggable="true"
+        on:dragstart={onDragStart}
+        on:dragover|preventDefault={onDragOver}
+        on:dragleave={onDragLeave}
+        on:drop|preventDefault={onDrop}
+        animate:flip={{ duration: 300 }}
+      >
+        <slot {item} {index} />
+      </li>
     {/each}
   </ul>
 {:else}
