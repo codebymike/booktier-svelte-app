@@ -14,4 +14,9 @@
         }
     }
 
+    function onDragStart(e: DragEvent) {
+        const dragged = getDraggedParent(e.target);
+        e.dataTransfer?.setData("source", dragged?.index.toString());
+    }
+
 </script>
