@@ -31,4 +31,13 @@
         isOver === dragged.id && (isOver = false);
     }
 
+    function onDrop(e: DragEvent) {
+        isOver = false;
+        const dragged = getDraggedParent(e.target);
+        reorder({
+            from: e.dataTransfer?.getData("source"),
+            to: dragged.index,
+        });
+    }
+
 </script>
