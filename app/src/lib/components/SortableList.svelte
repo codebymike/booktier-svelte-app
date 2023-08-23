@@ -26,4 +26,9 @@
         isOver = dragged?.id ?? false;
     }
 
+    function onDragLeave(e: DragEvent) {
+        const dragged = getDraggedParent(e.target);
+        isOver === dragged.id && (isOver = false);
+    }
+
 </script>
