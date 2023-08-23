@@ -40,4 +40,11 @@
         });
     }
 
+    const reorder = ({ from, to }: any) => {
+        const newList = [...list];
+        newList[from] = [newList[to], (newList[to] = newList[from])][0];
+
+        dispatch("sort", newList);
+    };
+
 </script>
