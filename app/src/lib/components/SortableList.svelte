@@ -6,5 +6,12 @@
     let isOver: string | boolean = false;
     const dispatch = createEventDispatcher();
 
-    
+    function getDraggedParent(node: any) {
+        if (!node.dataset.index) {
+            return getDraggedParent(node.parentNode);
+        } else {
+            return { ...node.dataset };
+        }
+    }
+
 </script>
