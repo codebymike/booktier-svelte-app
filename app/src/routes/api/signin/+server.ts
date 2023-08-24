@@ -21,3 +21,8 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
         throw error(401, 'Recent sign in required!');
     }
 };
+
+export const DELETE: RequestHandler = async ({ cookies }) => {
+    cookies.delete('__session', { path: '/' });
+    return json({ status: 'signedOut' });
+}
