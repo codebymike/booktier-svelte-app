@@ -12,7 +12,6 @@
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // 'CSRF-Token': csrfToken  // HANDLED by sveltekit automatically
         },
         body: JSON.stringify({ idToken }),
       });
