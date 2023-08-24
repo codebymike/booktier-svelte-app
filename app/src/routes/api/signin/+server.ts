@@ -1,4 +1,5 @@
 import { adminAuth } from '$lib/server/admin';
+import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request, cookies }) => {
@@ -8,4 +9,10 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
     const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
 
     const decodedIdToken = await adminAuth.verifyIdToken(idToken);
+
+    if (new Date().getTime() / 1000 - decodedIdToken.auth_time < 5 * 60) {
+    
+    } else {
+        throw error(401, 'Recent sign in required!');
+    }
 };
