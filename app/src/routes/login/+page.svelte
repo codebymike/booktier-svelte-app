@@ -17,7 +17,11 @@
         body: JSON.stringify({ idToken }),
       });
     }
-
+    
+    async function signOutSSR() {
+      const res = await fetch("/api/signin", { method: "DELETE" });
+      await signOut(auth);
+    }
 </script>
 
 <h2>Login</h2>
