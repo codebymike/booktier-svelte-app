@@ -1,5 +1,5 @@
 import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = async () => {
+export const POST: RequestHandler = async ({ request, cookies }) => {
     return new Response();
 };
