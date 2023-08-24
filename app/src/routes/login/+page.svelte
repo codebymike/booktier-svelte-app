@@ -3,9 +3,19 @@
     import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
     async function signInWithGoogle() {
-        const provider = new GoogleAuthProvider();
-        const user = await signInWithPopup(auth, provider);
-        console.log(user)
+      const provider = new GoogleAuthProvider();
+      const credential = await signInWithPopup(auth, provider);
+
+      const idToken = await credential.user.getIdToken();
+
+      const res = await fetch("/api/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // 'CSRF-Token': csrfToken  // HANDLED by sveltekit automatically
+        },
+        body: JSON.stringify({ idToken }),
+      });
     }
 
 </script>
