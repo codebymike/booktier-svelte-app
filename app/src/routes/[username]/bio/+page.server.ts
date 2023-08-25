@@ -11,6 +11,10 @@ export const load = (async ({ cookies }) => {
         const userDoc = await adminDB.collection('users').doc(decodedClaims.uid).get();
         const userData = userDoc.data();
 
+        return {
+            bio: userData?.bio,
+        }
+
     } catch (e) {
         console.log(e)
         // redirect(301, '/login');
