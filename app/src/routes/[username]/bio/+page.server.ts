@@ -1,5 +1,7 @@
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ cookies }) => {
-    return {};
+
+    const sessionCookie = cookies.get('__session');
+
 }) satisfies PageServerLoad;
