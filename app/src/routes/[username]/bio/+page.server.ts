@@ -28,5 +28,8 @@ export const actions = {
 
         const data = await request.formData();
         const bio = data.get('bio');
+
+        const userRef = adminDB.collection("users").doc(uid!);
+        const { username } = (await userRef.get()).data()!;
     }
 } satisfies Actions;
