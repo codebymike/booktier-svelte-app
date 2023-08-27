@@ -31,5 +31,13 @@ export const actions = {
 
         const userRef = adminDB.collection("users").doc(uid!);
         const { username } = (await userRef.get()).data()!;
+
+        if (params.username !== username) {
+            throw error(401, "That username does not belong to you");
+        }
+    
+        if (bio!.length > 260) {
+            return fail(400, { problem: "Bio must be less than 260 characters" });
+        }
     }
 } satisfies Actions;
