@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { PageData } from './$types';
+    import { page } from "$app/stores";
     import { enhance } from "$app/forms";
     
     export let data: PageData;
@@ -7,6 +8,9 @@
 
 <main class="max-w-lg prose text-center mx-auto my-6">
     <p>Current Bio: <span class="text-info">{data.bio}</span></p>
+
+    <p>Status Code: {$page.status}</p>
+    <p class="text-error">{$page.form?.problem ?? ""}</p>
 
     <form method="POST" use:enhance>
         <div class="form-control">
