@@ -1,4 +1,4 @@
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad, Actions } from "./$types";
 import { adminDB } from "$lib/server/admin";
 import { error, redirect } from "@sveltejs/kit";
 
@@ -21,3 +21,6 @@ export const load = (async ({ locals, params }) => {
       bio,
     };
 }) satisfies PageServerLoad;
+
+export const actions = {
+} satisfies Actions;
