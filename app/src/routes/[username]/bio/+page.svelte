@@ -4,4 +4,6 @@
     export let data: PageData;
 </script>
 
-<h1>Edit Bio</h1>
+<main class="max-w-lg prose text-center mx-auto my-6">
+    <p>Current Bio: <span class="text-info">{data.bio}</span></p>
+</main>
