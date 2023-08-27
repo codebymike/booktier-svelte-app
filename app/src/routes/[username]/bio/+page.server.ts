@@ -23,4 +23,7 @@ export const load = (async ({ locals, params }) => {
 }) satisfies PageServerLoad;
 
 export const actions = {
+    default: async ({ locals, request, params }) => {
+        
+    }
 } satisfies Actions;
