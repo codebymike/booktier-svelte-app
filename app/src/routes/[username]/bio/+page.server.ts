@@ -24,6 +24,9 @@ export const load = (async ({ locals, params }) => {
 
 export const actions = {
     default: async ({ locals, request, params }) => {
-        
+        const uid = locals.userID;
+
+        const data = await request.formData();
+        const bio = data.get('bio');
     }
 } satisfies Actions;
