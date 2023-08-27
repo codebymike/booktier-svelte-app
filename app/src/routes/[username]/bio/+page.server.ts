@@ -1,6 +1,6 @@
 import type { PageServerLoad, Actions } from "./$types";
 import { adminDB } from "$lib/server/admin";
-import { error, redirect } from "@sveltejs/kit";
+import { error, fail, redirect } from "@sveltejs/kit";
 
 export const load = (async ({ locals, params }) => {
 
@@ -39,5 +39,9 @@ export const actions = {
         if (bio!.length > 260) {
             return fail(400, { problem: "Bio must be less than 260 characters" });
         }
+        
+        await userRef.update({
+            bio
+        });
     }
 } satisfies Actions;
