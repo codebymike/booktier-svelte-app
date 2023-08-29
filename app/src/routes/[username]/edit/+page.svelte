@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import SortableList from "$lib/components/SortableList.svelte";
-    import UserLink from "$lib/components/UserLink.svelte";
+    import UserBook from "$lib/components/UserBook.svelte";
     import { db, userData, user } from "$lib/firebase";
     import {
       arrayRemove,
@@ -72,7 +72,7 @@
 
         <SortableList list={$userData?.links} on:sort={sortList} let:item let:index>
           <div class="group relative">
-            <UserLink {...item} />
+            <UserBook {...item} />
             <button
               on:click={() => deleteLink(item)}
               class="btn btn-xs btn-error invisible group-hover:visible transition-all absolute -right-6 bottom-10"
