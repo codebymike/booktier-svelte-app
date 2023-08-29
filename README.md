@@ -1,4 +1,4 @@
-# Svelte / Svelte-kit App
+# BookTier - Favourite Book Lists w/Svelte / Svelte-kit
 
 Using:
 - Svelte & Svelt-kit
