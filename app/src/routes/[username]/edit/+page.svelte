@@ -13,28 +13,18 @@
     import { writable } from "svelte/store";
 
     
-    const icons = [
-      "Twitter",
-      "YouTube",
-      "TikTok",
-      "LinkedIn",
-      "GitHub",
-      "Custom",
-    ];
-
     const formDefaults = {
-      icon: "custom",
       title: "",
-      url: "https://",
+      author: "",
     };
 
     const formData = writable(formDefaults);
   
     let showForm = false;
 
-    $: urlIsValid = $formData.url.match(/^(ftp|http|https):\/\/[^ "]+$/);
     $: titleIsValid = $formData.title.length < 20 && $formData.title.length > 0;
-    $: formIsValid = urlIsValid && titleIsValid;
+    $: authorIsValid = $formData.title.length < 20 && $formData.title.length > 0;
+    $: formIsValid = titleIsValid && authorIsValid;
 
     async function addLink(e: SubmitEvent) {
       const userRef = doc(db, "users", $user!.uid);
@@ -47,9 +37,8 @@
       });
   
       formData.set({
-        icon: "",
         title: "",
-        url: "",
+        author: "",
       });
   
       showForm = false;
@@ -78,7 +67,7 @@
 <main class="max-w-xl mx-auto">
     {#if $userData?.username == $page.params.username}
         <h1 class="mx-2 text-2xl font-bold mt-8 mb-4 text-center">
-            Edit your Profile
+            Edit your BookTier
         </h1>
 
         <SortableList list={$userData?.links} on:sort={sortList} let:item let:index>
@@ -97,15 +86,6 @@
                 on:submit|preventDefault={addLink}
                 class="bg-base-200 p-6 w-full mx-auto rounded-xl"
             >
-                <select
-                    name="icon"
-                    class="select select-sm"
-                    bind:value={$formData.icon}
-                >
-                    {#each icons as icon}
-                    <option value={icon.toLowerCase()}>{icon}</option>
-                    {/each}
-                </select>
                 <input
                     name="title"
                     type="text"
@@ -114,18 +94,18 @@
                     bind:value={$formData.title}
                 />
                 <input
-                    name="url"
+                    name="author"
                     type="text"
-                    placeholder="URL"
+                    placeholder="Author"
                     class="input input-sm"
-                    bind:value={$formData.url}
+                    bind:value={$formData.author}
                 />
                 <div class="my-4">
                     {#if !titleIsValid}
                     <p class="text-error text-xs">Must have valid title</p>
                     {/if}
-                    {#if !urlIsValid}
-                    <p class="text-error text-xs">Must have a valid URL</p>
+                    {#if !authorIsValid}
+                    <p class="text-error text-xs">Must have a valid author</p>
                     {/if}
                     {#if formIsValid}
                     <p class="text-success text-xs">Looks good!</p>
@@ -135,7 +115,7 @@
                 <button
                     disabled={!formIsValid}
                     type="submit"
-                    class="btn btn-success block">Add Link</button
+                    class="btn btn-success block">Add Book</button
                 >
     
                 <button type="button" class="btn btn-xs my-4" on:click={cancelLink}>Cancel</button>
@@ -146,7 +126,7 @@
                 on:click={() => (showForm = true)}
                 class="btn btn-outline btn-info block mx-auto my-4"
             >
-                Add a Link
+                Add a Book
             </button>
         {/if}
     {/if}
