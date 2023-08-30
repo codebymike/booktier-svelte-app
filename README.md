@@ -1,12 +1,20 @@
-# BookTier - Favourite Book Lists w/Svelte / Svelte-kit
+# BookTier - Favourite Book Lists
 
-Using:
+## Using:
 - Svelte & Svelt-kit
 - Typescript
 - Firebase (Auth, Storage, Hosting)
 - Tailwind & DaisyUI
 
-TODO:
+## Features:
+- Google OAuth
+- Unique profile names
+- List & drag-n-drop favorite books
+
+## Instructions:
+- $ npm i && npm run dev
+
+## TODO:
 - Homepage, new items, new users, login links
-- Change copy to books
 - Find easy way to collect book covers
+
