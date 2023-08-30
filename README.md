@@ -13,6 +13,7 @@
 
 ## Instructions:
 - $ npm i && npm run dev
+- $ firebase deploy
 
 ## TODO:
 - Homepage, new items, new users, login links
